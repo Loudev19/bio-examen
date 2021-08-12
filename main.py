@@ -15,7 +15,7 @@ import numpy as np
 
 fastaFile = input('Ingrese el nombre del contenedor de archivos .fasta: ') + '/'
 outpath = "out" + fastaFile
-metric = input('Ingrese el Nro del método que desea usar:\n1. Minkowski\n2. Euclidean\n')
+metric = input('Ingrese el Nro del método que desea usar:\n1. Manhattan\n2. Euclidean\n')
 ##############################
 with os.scandir() as itr: 
 	findin = False
@@ -70,13 +70,12 @@ print("\n______________________________________________")
 print("Matriz triangular de similitud")
 print("______________________________________________\n")
 print(vecid)
-newvec = pdist.getVsAll(9)
+newvec = pdist.getVsAll(1)
 indexvec = []
 valvec = []
 for i in range(n-1):
 	indexvec.append(labelarr[newvec[i][0]])
 	valvec.append(newvec[i][1])
-print("test")
 fig, ax = plt.subplots()
 ax.plot(indexvec,valvec, '-o', ms=10, lw=2, alpha = 0.7, mfc='green')
 plt.xticks(ha='left',rotation=-45)
